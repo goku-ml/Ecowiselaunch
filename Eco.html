@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoWise - Website Carbon Score</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #f4f7f5;
+      color: #1c1c1c;
+      line-height: 1.6;
+    }
+    header, section {
+      padding: 2rem 1.5rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    h1, h2, h3 {
+      color: #2f855a;
+    }
+    input, button {
+      padding: 0.75rem;
+      margin-top: 1rem;
+      font-size: 1rem;
+    }
+    input {
+      width: 100%;
+      max-width: 400px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    button {
+      background: #2f855a;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .score-result, .badge-section, .leaderboard, .about-section {
+      margin-top: 3rem;
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .score-grade {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 0.75rem;
+      border-bottom: 1px solid #ddd;
+    }
+    .badge-img {
+      width: 120px;
+      margin: 1rem 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Check Your Website’s EcoWise Score 🌱</h1>
+    <p>Enter your URL and see how much carbon your site emits.</p>
+    <input type="text" placeholder="https://yourwebsite.com" id="urlInput" />
+    <button onclick="checkScore()">Score Now</button>
+
+    <div class="score-result" id="scoreResult" style="display:none;">
+      <h2>Your EcoWise Score</h2>
+      <p class="score-grade">B</p>
+      <p>Estimated Annual Emissions: <strong>45 kg CO₂/year</strong></p>
+      <img src="https://via.placeholder.com/300x30?text=Green---Red+Scale" alt="Emission Scale" />
+      <p>Want to reduce your score?</p>
+      <button>Install EcoWise</button>
+    </div>
+  </header>
+
+  <section class="badge-section">
+    <h2>🎖️ Earn the EcoWise Verified Green Site Badge</h2>
+    <p>Websites with a score of B or better can embed this badge:</p>
+    <img class="badge-img" src="https://via.placeholder.com/120x120?text=EcoWise+Badge" alt="EcoWise Badge" />
+    <br />
+    <button>Copy Embed Code</button>
+    <button>Submit for Review</button>
+  </section>
+
+  <section class="leaderboard">
+    <h2>🌍 Cleanest Websites This Week</h2>
+    <table>
+      <tr><th>Domain</th><th>Score</th><th>Emissions</th></tr>
+      <tr><td>greentech.io</td><td>A</td><td>12 kg CO₂/year</td></tr>
+      <tr><td>cleancode.dev</td><td>A</td><td>18 kg CO₂/year</td></tr>
+      <tr><td>minimalmart.com</td><td>B</td><td>33 kg CO₂/year</td></tr>
+    </table>
+    <br />
+    <button>View Full Leaderboard</button>
+    <button>Submit Your Site</button>
+  </section>
+
+  <section class="about-section">
+    <h2>About EcoWise</h2>
+    <p><strong>What it is:</strong> A browser extension that tracks & reduces your digital carbon footprint.</p>
+    <p><strong>Why it matters:</strong> Most websites unknowingly waste energy. EcoWise helps make them cleaner.</p>
+    <p><strong>Who it’s for:</strong> Eco-conscious brands, developers, and sustainable SaaS teams.</p>
+    <button>Learn More</button>
+    <button>Try Free</button>
+  </section>
+
+  <script>
+    function checkScore() {
+      const input = document.getElementById('urlInput');
+      if (!input.value) {
+        alert('Please enter a valid URL.');
+        return;
+      }
+      document.getElementById('scoreResult').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
